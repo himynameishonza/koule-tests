@@ -1,0 +1,178 @@
+header.header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+
+    .main-navigation {
+        padding: 16px 24px;
+        display: grid;
+        grid-template-columns: 42px auto 68px;
+        grid-template-areas: 'logo navigation avatar';
+        column-gap: 16px;
+        max-width: 1300px;
+        margin: 0 auto;
+
+        .main-navigation__logo {
+            width: 48px;
+            display: flex;
+            grid-area: logo;
+            align-items: center;
+
+            a {
+                display: block;
+                width: 48px;
+                height: 48px;
+            }
+        }
+
+        .main-navigation__items {
+            display: flex;
+            grid-area: navigation;
+
+            @media (max-width: 800px) {
+                display: none;
+            }
+
+            ul {
+                list-style: none;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 0;
+                margin: 0;
+
+                li {
+                    &.active a {
+                        color: #ffcd00;
+                        position: relative;
+
+                        &:after {
+                            position: absolute;
+                            bottom: -10px;
+                            content: '';
+                            height: 2px;
+                            background: #ffcd00;
+                            left: 12px;
+                            right: 12px;
+                        }
+                    }
+                    a {
+                        padding: 0 16px;
+                        font-weight: bold;
+                        text-decoration: none;
+                        color: #fff;
+
+                        &:hover {
+                            color: #cacaca;
+                        }
+                    }
+                }
+            }
+        }
+
+        .main-navigation__user {
+            grid-area: avatar;
+            display: flex;
+        }
+    }
+}
+
+.secondary-navigation {
+    background: #1f1f1f;
+    padding: 0 24px;
+    position: relative;
+
+    nav {
+        padding: 0;
+        margin: 0;
+        display: flex;
+    }
+
+    ul {
+        list-style: none;
+        padding: 16px 0;
+        margin: 0 auto;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        li {
+            cursor: pointer;
+            a {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 8px 16px;
+                font-size: 14px;
+                border-radius: 4px;
+                margin: 0 8px;
+                color: #fff;
+                text-decoration: none;
+                transition: background 0.24s;
+
+                svg {
+                    height: 32px;
+                    margin-bottom: 8px;
+                    fill: rgb(192, 192, 192);
+                }
+                &:hover {
+                    background: grey;
+
+                    svg {
+                        fill: #ffffff;
+                    }
+                }
+
+                &:focus {
+                    outline: none;
+                    box-shadow: 0 0 1px 1px #ffcd00;
+                }
+            }
+
+            &.item--active a {
+                cursor: default;
+                svg {
+                    fill: #ffcd00;
+                }
+                &:hover {
+                    background: transparent;
+                }
+                color: #ffcd00;
+                font-weight: bold;
+            }
+        }
+    }
+
+    .move-right,
+    .move-left {
+        position: absolute;
+        top: 12px;
+        bottom: 12px;
+        padding: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        background: #1f1f1f;
+        z-index: 1;
+
+        svg {
+            width: 8px;
+            fill: #fff;
+        }
+    }
+
+    .move-right {
+        right: 0;
+        border-left: 1px solid grey;
+    }
+
+    .move-left {
+        left: 0;
+        border-right: 1px solid grey;
+    }
+}

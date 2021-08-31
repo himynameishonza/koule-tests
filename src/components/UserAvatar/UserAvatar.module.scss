@@ -1,0 +1,100 @@
+.user-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 2;
+}
+.user-avatar__avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 16px;
+    border: 4px solid #ffcd00;
+    box-sizing: border-box;
+    background-color: #636363;
+    background-image: url('https://thispersondoesnotexist.com/image');
+    background-size: cover;
+    background-position: center;
+    box-shadow: inset 0px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+.user-avatar__dropdown {
+    padding-left: 8px;
+    position: relative;
+    & > svg {
+        width: 12px;
+        margin-top: 4px;
+        fill: #636363;
+        transition: transform 0.24s;
+    }
+
+    &.user-avatar__dropdown--opened {
+        & > svg {
+            transform: rotate(180deg);
+        }
+    }
+}
+
+.dropdown {
+    position: absolute;
+    top: 48px;
+    right: 0;
+    margin: 0;
+    background: white;
+    border-radius: 4px;
+    min-width: 170px;
+    box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12),
+        0 8px 10px -5px rgba(0, 0, 0, 0.2);
+
+    .dropdown__hero {
+        padding: 16px;
+        text-align: center;
+        border-bottom: 1px solid rgb(228, 228, 228);
+        background: #ffcd00;
+        border-radius: 4px 4px 0 0;
+
+        h5,
+        h6 {
+            margin: 0;
+            user-select: none;
+            color: #000000;
+        }
+
+        h5 {
+            font-size: 16px;
+        }
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+            a {
+                padding: 12px 16px;
+                text-decoration: none;
+                color: #000000;
+                font-size: 16px;
+                font-weight: bold;
+                white-space: nowrap;
+                display: flex;
+                align-items: center;
+                user-select: none;
+
+                svg {
+                    width: 20px;
+                    margin-right: 12px;
+                }
+            }
+
+            &.divider {
+                border-bottom: 1px solid rgb(228, 228, 228);
+            }
+
+            &:hover {
+                background: rgb(230, 230, 230);
+            }
+        }
+    }
+}
